@@ -745,11 +745,10 @@ local ModifierFuncs = {
 	["Alt"] = IsAltKeyDown,
 	["Cmd"] = IsMetaKeyDown,
 }
--- only returns 'true' for the requested TooltipSetting if the Setting's associated Modifier key is currently being pressed
 settings.GetTooltipSettingWithMod = function(self, setting)
-	local v = RawSettings.Tooltips[setting]
+	local v = RawSettings.Tooltips["Enabled"] and RawSettings.Tooltips[setting]
 	if not v then return v end
-	local k = RawSettings.Tooltips[setting..":Mod"]
+	local k = RawSettings.Tooltips["Enabled:Mod"]
 	if k == "None" then
 		return v
 	end
