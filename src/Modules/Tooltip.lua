@@ -622,7 +622,7 @@ local CanAttachTooltips = app.EmptyFunction
 app.AddEventHandler("OnReady", function()
 	CanAttachTooltips = function()
 		-- Consolidated logic for whether a tooltip should include ATT information based on combat & user settings
-		return (not InCombatLockdown() or app.Settings:GetTooltipSetting("DisplayInCombat")) and app.Settings:GetTooltipSettingWithMod("Enabled")
+		return (not InCombatLockdown() or app.Settings:GetTooltipSetting("DisplayInCombat")) --and app.Settings:GetTooltipSettingWithMod("Enabled")
 	end
 end)
 local function ClearTooltip(tooltip)
