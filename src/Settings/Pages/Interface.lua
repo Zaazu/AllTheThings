@@ -261,7 +261,7 @@ end
 
 local checkboxCollectionProgressOnModifier = child:CreateCheckBox("",
 function(self)
-	--self:SetChecked(settings:GetTooltipSetting("ProgressOnMod"))
+	self:SetChecked(settings:GetTooltipSetting("ProgressOnMod"))
 	if not settings:GetTooltipSetting("Enabled") then
 		self:Disable()
 		self:SetAlpha(0.4)
@@ -271,7 +271,7 @@ function(self)
 	end
 end,
 function(self)
-	--settings:SetTooltipSetting("ProgressOnMod", self:GetChecked())
+	settings:SetTooltipSetting("ProgressOnMod", self:GetChecked())
 end)
 checkboxCollectionProgressOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
 checkboxCollectionProgressOnModifier:SetPoint("LEFT", checkboxSummarizeThings, "LEFT", 0, 0)
@@ -313,7 +313,7 @@ checkboxProgressIconOnly:AlignBelow(checkboxCollectionProgress, 1)
 
 local checkboxKnownByOnModifier = child:CreateCheckBox("",
 function(self)
-	--self:SetChecked(settings:GetTooltipSetting("KnownByOnMod"))
+	self:SetChecked(settings:GetTooltipSetting("KnownByOnMod"))
 	if not settings:GetTooltipSetting("Enabled") then
 		self:Disable()
 		self:SetAlpha(0.4)
@@ -323,7 +323,7 @@ function(self)
 	end
 end,
 function(self)
-	--settings:SetTooltipSetting("KnownByOnMod", self:GetChecked())
+	settings:SetTooltipSetting("KnownByOnMod", self:GetChecked())
 end)
 checkboxKnownByOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
 checkboxKnownByOnModifier:AlignBelow(checkboxProgressIconOnly, -3.65)
@@ -347,7 +347,7 @@ checkboxKnownBy:AlignAfter(checkboxKnownByOnModifier)
 
 local checkboxSpecializationsOnModifier = child:CreateCheckBox("",
 function(self)
-	--self:SetChecked(settings:GetTooltipSetting("SpecializationRequirementsOnMod"))
+	self:SetChecked(settings:GetTooltipSetting("SpecializationRequirementsOnMod"))
 	if not settings:GetTooltipSetting("Enabled") then
 		self:Disable()
 		self:SetAlpha(0.4)
@@ -357,7 +357,7 @@ function(self)
 	end
 end,
 function(self)
-	--settings:SetTooltipSetting("SpecializationRequirementsOnMod", self:GetChecked())
+	settings:SetTooltipSetting("SpecializationRequirementsOnMod", self:GetChecked())
 end)
 checkboxSpecializationsOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
 checkboxSpecializationsOnModifier:AlignBelow(checkboxKnownByOnModifier)
@@ -381,7 +381,7 @@ checkboxSpecializations:AlignAfter(checkboxSpecializationsOnModifier)
 
 local checkboxDropChancesOnModifier = child:CreateCheckBox("",
 function(self)
-	--self:SetChecked(settings:GetTooltipSetting("DropChancesOnMod"))
+	self:SetChecked(settings:GetTooltipSetting("DropChancesOnMod"))
 	if not settings:GetTooltipSetting("Enabled") then
 		self:Disable()
 		self:SetAlpha(0.4)
@@ -391,7 +391,7 @@ function(self)
 	end
 end,
 function(self)
-	--settings:SetTooltipSetting("DropChancesOnMod", self:GetChecked())
+	settings:SetTooltipSetting("DropChancesOnMod", self:GetChecked())
 end)
 checkboxDropChancesOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
 checkboxDropChancesOnModifier:AlignBelow(checkboxSpecializationsOnModifier)
@@ -415,7 +415,7 @@ checkboxDropChances:AlignAfter(checkboxDropChancesOnModifier)
 
 local checkboxModelPreviewOnModifier = child:CreateCheckBox("",
 function(self)
-	--self:SetChecked(settings:GetTooltipSetting("ModelsOnMod"))
+	self:SetChecked(settings:GetTooltipSetting("ModelsOnMod"))
 	if not settings:GetTooltipSetting("Enabled") then
 		self:Disable()
 		self:SetAlpha(0.4)
@@ -425,7 +425,7 @@ function(self)
 	end
 end,
 function(self)
-	--settings:SetTooltipSetting("ModelsOnMod", self:GetChecked())
+	settings:SetTooltipSetting("ModelsOnMod", self:GetChecked())
 end)
 checkboxModelPreviewOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
 checkboxModelPreviewOnModifier:AlignBelow(checkboxDropChancesOnModifier)
@@ -449,7 +449,7 @@ checkboxModelPreview:AlignAfter(checkboxModelPreviewOnModifier)
 
 local checkboxCurrencyCalculationOnModifier = child:CreateCheckBox("",
 function(self)
-	--self:SetChecked(settings:GetTooltipSetting("CurrenciesOnMod"))
+	self:SetChecked(settings:GetTooltipSetting("CurrenciesOnMod"))
 	if not settings:GetTooltipSetting("Enabled") then
 		self:Disable()
 		self:SetAlpha(0.4)
@@ -459,7 +459,7 @@ function(self)
 	end
 end,
 function(self)
-	--settings:SetTooltipSetting("CurrenciesOnMod", self:GetChecked())
+	settings:SetTooltipSetting("CurrenciesOnMod", self:GetChecked())
 end)
 checkboxCurrencyCalculationOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
 checkboxCurrencyCalculationOnModifier:AlignBelow(checkboxModelPreviewOnModifier)
@@ -483,7 +483,7 @@ checkboxCurrencyCalculation:AlignAfter(checkboxCurrencyCalculationOnModifier)
 
 local checkboxSharedAppearancesOnModifier = child:CreateCheckBox("",
 function(self)
-	--self:SetChecked(settings:GetTooltipSetting("SharedAppearancesOnMod"))
+	self:SetChecked(settings:GetTooltipSetting("SharedAppearancesOnMod"))
 	if not settings:GetTooltipSetting("Enabled") then
 		self:Disable()
 		self:SetAlpha(0.4)
@@ -493,7 +493,7 @@ function(self)
 	end
 end,
 function(self)
-	--settings:SetTooltipSetting("SharedAppearancesOnMod", self:GetChecked())
+	settings:SetTooltipSetting("SharedAppearancesOnMod", self:GetChecked())
 end)
 checkboxSharedAppearancesOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
 checkboxSharedAppearancesOnModifier:AlignAfter(checkboxCollectionProgress, 20)
@@ -551,7 +551,7 @@ checkboxOnlyRelevant:AlignBelow(checkboxOriginalSource)
 
 local checkboxCompletedByOnModifier = child:CreateCheckBox("",
 function(self)
-	--self:SetChecked(settings:GetTooltipSetting("CompletedByOnMod"))
+	self:SetChecked(settings:GetTooltipSetting("CompletedByOnMod"))
 	if not settings:GetTooltipSetting("Enabled") then
 		self:Disable()
 		self:SetAlpha(0.4)
@@ -561,7 +561,7 @@ function(self)
 	end
 end,
 function(self)
-	--settings:SetTooltipSetting("CompletedByOnMod", self:GetChecked())
+	settings:SetTooltipSetting("CompletedByOnMod", self:GetChecked())
 end)
 checkboxCompletedByOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
 checkboxCompletedByOnModifier:AlignBelow(checkboxOnlyRelevant, -3.65)
@@ -585,7 +585,7 @@ checkboxCompletedBy:AlignAfter(checkboxCompletedByOnModifier)
 
 local checkboxSourceLocationsOnModifier = child:CreateCheckBox("",
 function(self)
-	--self:SetChecked(settings:GetTooltipSetting("SourceLocationsOnMod"))
+	self:SetChecked(settings:GetTooltipSetting("SourceLocationsOnMod"))
 	if not settings:GetTooltipSetting("Enabled") then
 		self:Disable()
 		self:SetAlpha(0.4)
@@ -595,7 +595,7 @@ function(self)
 	end
 end,
 function(self)
-	--settings:SetTooltipSetting("SourceLocationsOnMod", self:GetChecked())
+	settings:SetTooltipSetting("SourceLocationsOnMod", self:GetChecked())
 end)
 checkboxSourceLocationsOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
 checkboxSourceLocationsOnModifier:AlignBelow(checkboxCompletedByOnModifier)

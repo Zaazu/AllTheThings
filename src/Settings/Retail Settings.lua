@@ -227,6 +227,15 @@ local TooltipSettingsBase = {
 		["WorldQuestsList:Currencies"] = true,
 		["Updates:AdHoc"] = true,
 		["SocialProgress"] = true,
+		["ProgressOnMod"] = false,
+		["KnownByOnMod"] = false,
+		["SpecializationRequirementsOnMod"] = false,
+		["DropChancesOnMod"] = false,
+		["ModelsOnMod"] = false,
+		["CurrenciesOnMod"] = false,
+		["CompletedByOnMod"] = false,
+		["SourceLocationsOnMod"] = false,
+		["SharedAppearancesOnMod"] = false,
 
 		-- Features: Reporting
 		["Report:Collected"] = true,
