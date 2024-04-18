@@ -259,6 +259,24 @@ textTooltipShownInfo.OnRefresh = function(self)
 	end
 end
 
+local checkboxCollectionProgressOnModifier = child:CreateCheckBox("",
+function(self)
+	--self:SetChecked(settings:GetTooltipSetting("ProgressOnMod"))
+	if not settings:GetTooltipSetting("Enabled") then
+		self:Disable()
+		self:SetAlpha(0.4)
+	else
+		self:Enable()
+		self:SetAlpha(1)
+	end
+end,
+function(self)
+	--settings:SetTooltipSetting("ProgressOnMod", self:GetChecked())
+end)
+checkboxCollectionProgressOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
+checkboxCollectionProgressOnModifier:SetPoint("LEFT", checkboxSummarizeThings, "LEFT", 0, 0)
+checkboxCollectionProgressOnModifier:SetPoint("TOP", textTooltipShownInfo, "BOTTOM", 0, -2)
+
 local checkboxCollectionProgress = child:CreateCheckBox(L.SHOW_COLLECTION_PROGRESS_CHECKBOX,
 function(self)
 	self:SetChecked(settings:GetTooltipSetting("Progress"))
@@ -274,8 +292,7 @@ function(self)
 	settings:SetTooltipSetting("Progress", self:GetChecked())
 end)
 checkboxCollectionProgress:SetATTTooltip(L.SHOW_COLLECTION_PROGRESS_CHECKBOX_TOOLTIP)
-checkboxCollectionProgress:SetPoint("LEFT", checkboxSummarizeThings, "LEFT", 0, 0)
-checkboxCollectionProgress:SetPoint("TOP", textTooltipShownInfo, "BOTTOM", 0, -2)
+checkboxCollectionProgress:AlignAfter(checkboxCollectionProgressOnModifier)
 
 local checkboxProgressIconOnly = child:CreateCheckBox(L.ICON_ONLY_CHECKBOX,
 function(self)
@@ -294,6 +311,23 @@ end)
 checkboxProgressIconOnly:SetATTTooltip(L.ICON_ONLY_CHECKBOX_TOOLTIP)
 checkboxProgressIconOnly:AlignBelow(checkboxCollectionProgress, 1)
 
+local checkboxKnownByOnModifier = child:CreateCheckBox("",
+function(self)
+	--self:SetChecked(settings:GetTooltipSetting("KnownByOnMod"))
+	if not settings:GetTooltipSetting("Enabled") then
+		self:Disable()
+		self:SetAlpha(0.4)
+	else
+		self:Enable()
+		self:SetAlpha(1)
+	end
+end,
+function(self)
+	--settings:SetTooltipSetting("KnownByOnMod", self:GetChecked())
+end)
+checkboxKnownByOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
+checkboxKnownByOnModifier:AlignBelow(checkboxProgressIconOnly, -3.65)
+
 local checkboxKnownBy = child:CreateCheckBox(L.KNOWN_BY_CHECKBOX,
 function(self)
 	self:SetChecked(settings:GetTooltipSetting("KnownBy"))
@@ -309,7 +343,24 @@ function(self)
 	settings:SetTooltipSetting("KnownBy", self:GetChecked())
 end)
 checkboxKnownBy:SetATTTooltip(L.KNOWN_BY_CHECKBOX_TOOLTIP)
-checkboxKnownBy:AlignBelow(checkboxProgressIconOnly, -1)
+checkboxKnownBy:AlignAfter(checkboxKnownByOnModifier)
+
+local checkboxSpecializationsOnModifier = child:CreateCheckBox("",
+function(self)
+	--self:SetChecked(settings:GetTooltipSetting("SpecializationRequirementsOnMod"))
+	if not settings:GetTooltipSetting("Enabled") then
+		self:Disable()
+		self:SetAlpha(0.4)
+	else
+		self:Enable()
+		self:SetAlpha(1)
+	end
+end,
+function(self)
+	--settings:SetTooltipSetting("SpecializationRequirementsOnMod", self:GetChecked())
+end)
+checkboxSpecializationsOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
+checkboxSpecializationsOnModifier:AlignBelow(checkboxKnownByOnModifier)
 
 local checkboxSpecializations = child:CreateCheckBox(L.SPEC_CHECKBOX,
 function(self)
@@ -326,7 +377,24 @@ function(self)
 	settings:SetTooltipSetting("SpecializationRequirements", self:GetChecked())
 end)
 checkboxSpecializations:SetATTTooltip(L.SPEC_CHECKBOX_TOOLTIP)
-checkboxSpecializations:AlignBelow(checkboxKnownBy)
+checkboxSpecializations:AlignAfter(checkboxSpecializationsOnModifier)
+
+local checkboxDropChancesOnModifier = child:CreateCheckBox("",
+function(self)
+	--self:SetChecked(settings:GetTooltipSetting("DropChancesOnMod"))
+	if not settings:GetTooltipSetting("Enabled") then
+		self:Disable()
+		self:SetAlpha(0.4)
+	else
+		self:Enable()
+		self:SetAlpha(1)
+	end
+end,
+function(self)
+	--settings:SetTooltipSetting("DropChancesOnMod", self:GetChecked())
+end)
+checkboxDropChancesOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
+checkboxDropChancesOnModifier:AlignBelow(checkboxSpecializationsOnModifier)
 
 local checkboxDropChances = child:CreateCheckBox(L.DROP_CHANCES_CHECKBOX,
 function(self)
@@ -343,7 +411,24 @@ function(self)
 	settings:SetTooltipSetting("DropChances", self:GetChecked())
 end)
 checkboxDropChances:SetATTTooltip(L.DROP_CHANCES_CHECKBOX_TOOLTIP)
-checkboxDropChances:AlignBelow(checkboxSpecializations)
+checkboxDropChances:AlignAfter(checkboxDropChancesOnModifier)
+
+local checkboxModelPreviewOnModifier = child:CreateCheckBox("",
+function(self)
+	--self:SetChecked(settings:GetTooltipSetting("ModelsOnMod"))
+	if not settings:GetTooltipSetting("Enabled") then
+		self:Disable()
+		self:SetAlpha(0.4)
+	else
+		self:Enable()
+		self:SetAlpha(1)
+	end
+end,
+function(self)
+	--settings:SetTooltipSetting("ModelsOnMod", self:GetChecked())
+end)
+checkboxModelPreviewOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
+checkboxModelPreviewOnModifier:AlignBelow(checkboxDropChancesOnModifier)
 
 local checkboxModelPreview = child:CreateCheckBox(L.SHOW_MODELS_CHECKBOX,
 function(self)
@@ -360,7 +445,24 @@ function(self)
 	settings:SetTooltipSetting("Models", self:GetChecked())
 end)
 checkboxModelPreview:SetATTTooltip(L.SHOW_MODELS_CHECKBOX_TOOLTIP)
-checkboxModelPreview:AlignBelow(checkboxDropChances)
+checkboxModelPreview:AlignAfter(checkboxModelPreviewOnModifier)
+
+local checkboxCurrencyCalculationOnModifier = child:CreateCheckBox("",
+function(self)
+	--self:SetChecked(settings:GetTooltipSetting("CurrenciesOnMod"))
+	if not settings:GetTooltipSetting("Enabled") then
+		self:Disable()
+		self:SetAlpha(0.4)
+	else
+		self:Enable()
+		self:SetAlpha(1)
+	end
+end,
+function(self)
+	--settings:SetTooltipSetting("CurrenciesOnMod", self:GetChecked())
+end)
+checkboxCurrencyCalculationOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
+checkboxCurrencyCalculationOnModifier:AlignBelow(checkboxModelPreviewOnModifier)
 
 local checkboxCurrencyCalculation = child:CreateCheckBox(L.SHOW_CURRENCY_CALCULATIONS_CHECKBOX,
 function(self)
@@ -377,7 +479,24 @@ function(self)
 	settings:SetTooltipSetting("Currencies", self:GetChecked())
 end)
 checkboxCurrencyCalculation:SetATTTooltip(L.SHOW_CURRENCY_CALCULATIONS_CHECKBOX_TOOLTIP)
-checkboxCurrencyCalculation:AlignBelow(checkboxModelPreview)
+checkboxCurrencyCalculation:AlignAfter(checkboxCurrencyCalculationOnModifier)
+
+local checkboxSharedAppearancesOnModifier = child:CreateCheckBox("",
+function(self)
+	--self:SetChecked(settings:GetTooltipSetting("SharedAppearancesOnMod"))
+	if not settings:GetTooltipSetting("Enabled") then
+		self:Disable()
+		self:SetAlpha(0.4)
+	else
+		self:Enable()
+		self:SetAlpha(1)
+	end
+end,
+function(self)
+	--settings:SetTooltipSetting("SharedAppearancesOnMod", self:GetChecked())
+end)
+checkboxSharedAppearancesOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
+checkboxSharedAppearancesOnModifier:AlignAfter(checkboxCollectionProgress, 20)
 
 local checkboxSharedAppearances = child:CreateCheckBox(L.SHARED_APPEARANCES_CHECKBOX,
 function(self)
@@ -394,7 +513,7 @@ function(self)
 	settings:SetTooltipSetting("SharedAppearances", self:GetChecked())
 end)
 checkboxSharedAppearances:SetATTTooltip(L.SHARED_APPEARANCES_CHECKBOX_TOOLTIP)
-checkboxSharedAppearances:AlignAfter(checkboxCollectionProgress, 20)
+checkboxSharedAppearances:AlignAfter(checkboxSharedAppearancesOnModifier)
 
 local checkboxOriginalSource = child:CreateCheckBox(L.INCLUDE_ORIGINAL_CHECKBOX,
 function(self)
@@ -430,6 +549,23 @@ end)
 checkboxOnlyRelevant:SetATTTooltip(L.ONLY_RELEVANT_CHECKBOX_TOOLTIP)
 checkboxOnlyRelevant:AlignBelow(checkboxOriginalSource)
 
+local checkboxCompletedByOnModifier = child:CreateCheckBox("",
+function(self)
+	--self:SetChecked(settings:GetTooltipSetting("CompletedByOnMod"))
+	if not settings:GetTooltipSetting("Enabled") then
+		self:Disable()
+		self:SetAlpha(0.4)
+	else
+		self:Enable()
+		self:SetAlpha(1)
+	end
+end,
+function(self)
+	--settings:SetTooltipSetting("CompletedByOnMod", self:GetChecked())
+end)
+checkboxCompletedByOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
+checkboxCompletedByOnModifier:AlignBelow(checkboxOnlyRelevant, -3.65)
+
 local checkboxCompletedBy = child:CreateCheckBox(L.COMPLETED_BY_CHECKBOX,
 function(self)
 	self:SetChecked(settings:GetTooltipSetting("CompletedBy"))
@@ -445,7 +581,24 @@ function(self)
 	settings:SetTooltipSetting("CompletedBy", self:GetChecked())
 end)
 checkboxCompletedBy:SetATTTooltip(L.COMPLETED_BY_CHECKBOX_TOOLTIP)
-checkboxCompletedBy:AlignBelow(checkboxOnlyRelevant, -1)
+checkboxCompletedBy:AlignAfter(checkboxCompletedByOnModifier)
+
+local checkboxSourceLocationsOnModifier = child:CreateCheckBox("",
+function(self)
+	--self:SetChecked(settings:GetTooltipSetting("SourceLocationsOnMod"))
+	if not settings:GetTooltipSetting("Enabled") then
+		self:Disable()
+		self:SetAlpha(0.4)
+	else
+		self:Enable()
+		self:SetAlpha(1)
+	end
+end,
+function(self)
+	--settings:SetTooltipSetting("SourceLocationsOnMod", self:GetChecked())
+end)
+checkboxSourceLocationsOnModifier:SetATTTooltip(L.SHOW_ON_MODIFIER_PRESSED_TOOLTIP)
+checkboxSourceLocationsOnModifier:AlignBelow(checkboxCompletedByOnModifier)
 
 local checkboxSourceLocations = child:CreateCheckBox(L.SOURCE_LOCATIONS_CHECKBOX,
 function(self)
@@ -462,7 +615,7 @@ function(self)
 	settings:SetTooltipSetting("SourceLocations", self:GetChecked())
 end)
 checkboxSourceLocations:SetATTTooltip(L.SOURCE_LOCATIONS_CHECKBOX_TOOLTIP)
-checkboxSourceLocations:AlignBelow(checkboxCompletedBy)
+checkboxSourceLocations:AlignAfter(checkboxSourceLocationsOnModifier)
 
 local sliderSourceLocations = CreateFrame("Slider", "ATTsliderSourceLocations", child, "OptionsSliderTemplate")
 sliderSourceLocations:SetPoint("TOP", checkboxSourceLocations.Text, "BOTTOM", 0, -4)
@@ -587,7 +740,7 @@ checkboxAllowWrapping:AlignBelow(checkboxUnsorted)
 
 -- Column 2
 local headerListBehavior = child:CreateHeaderLabel(L.BEHAVIOR_LABEL)
-headerListBehavior:SetPoint("TOPLEFT", headerTooltips, 320, 0)
+headerListBehavior:SetPoint("TOPLEFT", headerTooltips, 380, 0)
 
 local sliderMainListScale = CreateFrame("Slider", "ATTsliderMainListScale", child, "OptionsSliderTemplate")
 sliderMainListScale:SetPoint("TOPLEFT", headerListBehavior, "BOTTOMLEFT", 4, -15)
